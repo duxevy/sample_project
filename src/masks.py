@@ -1,5 +1,6 @@
 def foo(a, b):
     """Просто функция"""
+    a = a + 10
     return a + b
 
 def bar(x, y):
