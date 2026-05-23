@@ -4,7 +4,9 @@ def mask_card(card_number: str) -> str:
     Оставляет 6 цифр в начале и 4 в конце.
     """
     # Убираем возможные пробелы
-    cleaned = str(card_number).replace(" ", "")
+    if type(card_number) != str:
+        raise ValueError
+    cleaned = card_number.replace(" ", "")
     if len(cleaned) < 10:
         return "Неверный номер"
     return f"{cleaned[:4]} {cleaned[4:6]}** **** {cleaned[-4:]}"
@@ -19,9 +21,12 @@ def mask_account(account_number: str) -> str:
         return "Неверный номер"
     return f"**{cleaned[-4:]}"
 
-# Примеры использования
-card = "1234567890123456"
-account = "40817810500000001234"
+print(__name__)
 
-print(mask_card(card))
-print(mask_account(account))
+if __name__ == "__main__":
+    # Примеры использования
+    card = "1234567890123456"
+    account = "40817810500000001234"
+
+    print(mask_card(card))
+    print(mask_account(account))

@@ -11,4 +11,5 @@ def mask_account_card(numbers: str) -> str:
     result = f"{numbers_type} {digits}"
     return result
 
-print(mask_account_card("Счёт 1234567890123456123"))
+if __name__ == "__main__":
+    print(mask_account_card("Счёт 1234567890123456123"))
