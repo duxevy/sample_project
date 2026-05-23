@@ -19,9 +19,9 @@ def mask_account(account_number: str) -> str:
         return "Неверный номер"
     return f"**{cleaned[-4:]}"
 
-# # Примеры использования
-# card = "1234567890123456"
-# account = "40817810500000001234"
-#
-# print(mask_card(card))
-# print(mask_account(account))
+# Примеры использования
+card = "1234567890123456"
+account = "40817810500000001234"
+
+print(mask_card(card))
+print(mask_account(account))
