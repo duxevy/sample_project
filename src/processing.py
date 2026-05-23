@@ -1,9 +1,14 @@
-def func(a, b, c=None):
-    """Просто функция"""
-    a = a + 10 + 2 + 1
-    return a + b
+from src.masks import mask_account, mask_card
 
-def funco(x, y):
-    """Какой-то комментарий"""
-    a = foo(1, 2) + 20 + 1 + 2
-    return a ** 2
+def mask_account_card(numbers: str) -> str:
+    splitted_numbers = numbers.split()
+    numbers_type = " ".join(splitted_numbers[:-1])
+    digits = splitted_numbers[-1]
+    if len(digits) > 16:
+        digits = mask_account(digits)
+    else:
+        digits = mask_card(digits)
+    result = f"{numbers_type} {digits}"
+    return result
+
+print(mask_account_card("Счёт 1234567890123456123"))

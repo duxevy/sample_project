@@ -1,9 +1,27 @@
-def foo(a, b):
-    """Просто функция"""
-    a = a + 10 + 2 + 1
-    return a + b
+def mask_card(card_number: str) -> str:
+    """
+    Маскирует номер карты (например, 1234567890123456).
+    Оставляет 6 цифр в начале и 4 в конце.
+    """
+    # Убираем возможные пробелы
+    cleaned = str(card_number).replace(" ", "")
+    if len(cleaned) < 10:
+        return "Неверный номер"
+    return f"{cleaned[:4]} {cleaned[4:6]}** **** {cleaned[-4:]}"
 
-def bar(x, y):
-    """Просто функция 2"""
-    a = foo(1, 2) + 20 + 1 + 2
-    return a ** 2
+def mask_account(account_number: str) -> str:
+    """
+    Маскирует номер счета (например, 40817810500000001234).
+    Показывает последние 4 цифры.
+    """
+    cleaned = str(account_number).replace(" ", "")
+    if len(cleaned) < 10:
+        return "Неверный номер"
+    return f"**{cleaned[-4:]}"
+
+# # Примеры использования
+# card = "1234567890123456"
+# account = "40817810500000001234"
+#
+# print(mask_card(card))
+# print(mask_account(account))
